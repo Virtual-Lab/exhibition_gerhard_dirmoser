@@ -85,14 +85,14 @@ body {
 .folie {
     /* width: 100%; */
     margin: 0;
-    height: 80%;
+    height: 85%;
 
 
 }
 
 .step {
     position: relative;
-    width: 60em;
+    width: 80em;
     padding: 0;
     margin: 0px auto;
 }
