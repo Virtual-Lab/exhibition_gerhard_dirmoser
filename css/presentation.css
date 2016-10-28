@@ -102,9 +102,8 @@ body {
     float: left;
     margin: 0;
     padding: 0;
-    background: #fff;
-    width: 12em;
-    height: 8em;
+/*    width: 12em;
+    height: 8em;*/
     display: block;
     z-index: 99;
 }
