@@ -13,6 +13,8 @@ body {
     margin: 0;
     clear: both;
     background-color: #ddd;
+    font-family: 'Neue Helvetica', helvetica, arial, serif;
+    font-size: 100%;
     }
     
 
@@ -23,23 +25,36 @@ h1, h2, h3, h4, h5 {
     }
     
 h1 {
-    font-size: 2em;
+    font-size: 3em;
     font-family: 'Neue Helvetica', helvetica, arial, serif;
-    padding: 12px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    padding: 0.2em 0;
     margin: 0;
+    text-align: center;
     }
 
 h3 {
     font-size: 1.2em;
     margin: -50 0 0 0;
+    padding: 0.5em 0em;
     display: inline-block;
     }
 
 p {
-    font-size: 1em;
+    font-size: 1.8em;
     color: light-grey;
-    font-family: times, serif;
+    font-family: 'Neue Helvetica', helvetica, arial, serif;
+    line-height: 1.4em;
+    letter-spacing: 1px;
+    /*padding: 1em 1em;*/
     }
+
+img {
+    /*float: left;*/
+    width: 100%;
+    padding: 0 0 1em 0;
+}
 
 /*
     Now here is when interesting things start to appear.
@@ -83,29 +98,46 @@ body {
 */
 
 .folie {
-    /* width: 100%; */
-    margin: 0;
-    height: 85%;
-
-
+    margin: 0 auto;
+/*    height: 90%;*/
 }
 
 .step {
     position: relative;
-    width: 80em;
-    padding: 0;
+/*    width: 1440px;
+    height: 1080px;*/
+    padding: 0 auto;
     margin: 0px auto;
+}
+
+a.nav, a.nav:link, a.nav:visited, a.nav:hover, a.nav:active {
+    color: grey;
+    text-decoration: none;
+    }
+
+a.menu {
+    display: none;
+    opacity: 0;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+a.menu:hover {
+    display: block;
+    opacity: 1;
 }
 
 #map {
     position: absolute;
     float: left;
     margin: 0;
-    padding: 0;
-/*    width: 12em;
-    height: 8em;*/
+    padding: 0.5em 0.5em;
+    background-color: rgba(200, 200, 200, 0.2);
+    width: 6em;
+    height: 8em;
     display: block;
     z-index: 99;
+    line-height: 1.6em;
 }
 
 #sidemap {
@@ -118,8 +150,9 @@ body {
     Basically we remove the margin and make inactive steps a little bit transparent.
 */
 .impress-enabled .step {
-    margin: 0;
+    margin: 0 auto;
     opacity: 0.3;
+    -webkit-transition: opacity 0.5s;
     transition: opacity 0.5s;
 }
 
@@ -136,14 +169,111 @@ body {
 .slide {
     display: block;
 
-    width: 60em;
-    height: 50em;
-    padding: 0;
+    width: 1440px;
+    height: 1080px;
+    padding: 0 auto;
 
     background-color: white;
-    border: 1px solid rgba(0, 0, 0, .3);
-
     color: grey;
+}
+
+.row {
+    width: 100%;
+    padding: 1em 0;
+    clear: both;
+}
+
+.col-12 {
+    width: 100%;
+    padding: 0 2em 0 2em;
+    clear: both;
+}
+
+.col-11 {
+    width: 91.66666667%;
+    padding: 0 2em 0 2em;
+    float: left;
+/*    display: block;*/
+}
+
+.col-10 {
+    width: 83.33333333%;
+    padding: 0 2em 0 2em;
+    float: left;
+/*    display: block;*/
+}
+.col-9 {
+    width: 75%;
+    padding: 0 2em 0 2em;
+    float: left;
+/*    display: block;*/
+}
+
+.col-8 {
+    width: 66.66666667%;
+    padding: 0 2em 0 2em;
+    float: left;
+/*    display: block;*/
+}
+
+.col-7 {
+    width: 58.33333333%;
+    padding: 0 2em 0 2em;
+    float: left;
+/*    display: block;*/
+}
+
+.col-6 {
+    width: 50%;
+    padding: 0 2em 0 2em;
+    float: left;
+/*    display: block;*/
+}
+
+.col-5 {
+    width: 41.66666667%;
+    padding: 0 2em 0 2em;
+    float: left;
+/*    display: block;*/
+}
+
+.col-4 {
+    width: 33.33333333%;
+    padding: 0 2em 0 2em;
+    float: left;
+/*    display: block;*/
+}
+
+.col-3 {
+    width: 25%;
+    padding: 0 2em 0 2em;
+    float: left;
+/*    display: block;*/
+}
+
+.col-2 {
+    width: 16.6666666710%;
+    padding: 0 2em 0 2em;
+    float: left;
+/*    display: block;*/
+}
+
+.col-1 {
+    width: 8.33333333%;
+    padding: 0 2em 0 2em;
+    float: left;
+/*    display: block;*/
+}
+
+.center {
+    margin: 0 auto;
+    clear: both;
+    float: none;
+}
+
+.collaps {
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -160,6 +290,7 @@ body {
 
 #title {
     padding: 0;
+    border: 1px solid rgba(0, 0, 0, .3);
 }
 
 /*
@@ -179,6 +310,10 @@ body {
     cursor: pointer;
 }
 
+a.svg {
+  position: relative;
+  display: block;
+}
 
 /*
     Now, when we have all the steps styled let's give users a hint how to navigate
@@ -217,7 +352,8 @@ body {
     /*
         ... and position it below the bottom of the screen (relative to it's fixed position)
     */
-    transform:         translateY(400px);
+    -webkit-transform:         translateY(400px);
+            transform:         translateY(400px);
 
     /*
         Now let's imagine that the hint is visible and we want to fade it out and move out
@@ -229,7 +365,10 @@ body {
 
         This way user will not see the hint moving down.
     */
+    -webkit-transition: opacity 1s, -webkit-transform 0.5s 0.5s;
+    transition: opacity 1s, -webkit-transform 0.5s 0.5s;
     transition: opacity 1s, transform 0.5s 0.5s;
+    transition: opacity 1s, transform 0.5s 0.5s, -webkit-transform 0.5s 0.5s;
 
 }
 
@@ -247,7 +386,8 @@ body {
         position.
     */
     opacity: 1;
-    transform:         translateY(0px);
+    -webkit-transform:         translateY(0px);
+            transform:         translateY(0px);
 
     /*
         Now for fade in transition we have the oposite situation from the one
@@ -257,7 +397,10 @@ body {
         into its correct position and after that we fade it in with opacity
         transition.
     */
+    -webkit-transition: opacity 1s, -webkit-transform 0.5s 0.5s;
+    transition: opacity 1s, -webkit-transform 0.5s 0.5s;
     transition: opacity 1s, transform 0.5s 0.5s;
+    transition: opacity 1s, transform 0.5s 0.5s, -webkit-transform 0.5s 0.5s;
 
 }
 

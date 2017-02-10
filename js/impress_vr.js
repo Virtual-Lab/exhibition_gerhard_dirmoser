@@ -133,6 +133,8 @@
         return " scale(" + s + ") ";
     };
 
+    var bigger = 2.5;
+
     // `perspective` builds a perspective transform string for given data.
     var perspective = function( p ) {
         return " perspective(" + p + "px) ";
@@ -201,15 +203,15 @@
 
     // Some default config values.
     var defaults = {
-        // width: 1024,
-        // height: 768,
+        width: 1500,
+        height: 1200,
         // maxScale: 1,
         // minScale: 0,
         // Changes are made Sir ...
         // So don't define a default width will make zooming possible
          
-        maxScale: 1,
-        minScale: 0,
+        maxScale: 12,
+        minScale: 0.4,
 
         perspective: 1000,
 
@@ -307,9 +309,9 @@
             var data = el.dataset,
                 step = {
                     translate: {
-                        x: toNumber( data.x ),
-                        y: toNumber( data.y ),
-                        z: toNumber( data.z )
+                        x: toNumber( data.x * bigger ),
+                        y: toNumber( data.y * bigger),
+                        z: toNumber( data.z * bigger)
                     },
                     rotate: {
                         x: toNumber( data.rotateX ),
@@ -674,6 +676,9 @@
 
 // NAVIGATION EVENTS
 
+// RV: NAvigation Element in the menue:
+
+
 // As you can see this part is separate from the impress.js core code.
 // It's because these navigation actions only need what impress.js provides with
 // its simple API.
@@ -704,6 +709,8 @@
         // or anything. `impress:init` event data gives you everything you
         // need to control the presentation that was just initialized.
         var api = event.detail.api;
+        // var nav_li = document.getElementById("nav-l");
+        // var nav_re = document.getElementById("nav-l");
 
         // KEYBOARD NAVIGATION HANDLERS
 
@@ -776,7 +783,20 @@
                 // If it's a link to presentation step, target this step
                 if ( href && href[ 0 ] === "#" ) {
                     target = document.getElementById( href.slice( 1 ) );
+                };
+
+// _____________RV: If it's a navigator (links)
+                if ( href === "#links" ) {
+                    api.prev();
+                    //break;
+                };
+
+// _____________RV: If it's a navigator (right)
+                if ( href === "#rechts" ) {
+                    api.next();
+                    //break;
                 }
+
             }
 
             if ( api.goto( target ) ) {
